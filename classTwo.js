@@ -36,3 +36,15 @@ musketeers.splice(1, 1);
 for (const musketeer of musketeers) {
   console.log(musketeers);
 }
+
+// chapter 7 Sum of values
+const values = [3, 11, 7, 2, 9, 10];
+
+let sum = 0;
+
+values.forEach(value => {
+  sum += value;
+});
+
+console.log(sum);
+
