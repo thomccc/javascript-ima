@@ -37,6 +37,7 @@ const button = document.querySelector('#submitButton');
 const email = document.querySelector('#email');
 const password = document.querySelector('#password');
 let spinner = document.querySelector('.loader');
+let lastWord = document.querySelector('.last-word');
 
 
 function passwordValidation() {
@@ -56,6 +57,14 @@ const validateEmail= (email) => {
     return regex.test(String(email).toLowerCase());
 }
 
+function removeSpinner() {
+  spinner.style.display = 'none';
+  lastWord.style.visibility = `visible`;
+
+}
+
+
+
 function emailValidation() {
 
   if (validateEmail(email.value)){
@@ -63,6 +72,7 @@ function emailValidation() {
         email.style.border = `none`;
         email.style.borderRadius = `none`;
         spinner.style.visibility = `visible`;
+        setTimeout(removeSpinner, 2000);
   }
   else{
     email.style.border = '2px solid';
@@ -77,6 +87,8 @@ button.addEventListener('click', e => {
   e.preventDefault();
   passwordValidation();
   emailValidation();
+
+
 
 
 

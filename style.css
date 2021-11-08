@@ -97,3 +97,8 @@ body {
   }
 }
 
+.last-word {
+  position: relative;
+    visibility: hidden;
+
+}
