@@ -36,6 +36,8 @@ document.getElementById("informationThree").innerHTML = `There are ${writeThree}
 const button = document.querySelector('#submitButton');
 const email = document.querySelector('#email');
 const password = document.querySelector('#password');
+let spinner = document.querySelector('.loader');
+
 
 function passwordValidation() {
   if (!password.value) {
@@ -57,9 +59,10 @@ const validateEmail= (email) => {
 function emailValidation() {
 
   if (validateEmail(email.value)){
-        button.disabled = true;
+        button.style.visibility = "hidden";
         email.style.border = `none`;
         email.style.borderRadius = `none`;
+        spinner.style.visibility = `visible`;
   }
   else{
     email.style.border = '2px solid';
