@@ -33,3 +33,51 @@ document.getElementById("informationThree").innerHTML = `There are ${writeThree}
 
 });
 
+const button = document.querySelector('#submitButton');
+const email = document.querySelector('#email');
+const password = document.querySelector('#password');
+
+function passwordValidation() {
+  if (!password.value) {
+    password.style.border = '2px solid';
+    password.style.borderRadius = '5px'
+    password.style.borderColor = '#dc3545';
+  }
+  else {
+    password.style.border = 'none';
+
+  }
+}
+
+const validateEmail= (email) => {
+    var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return regex.test(String(email).toLowerCase());
+}
+
+function emailValidation() {
+
+  if (validateEmail(email.value)){
+        button.disabled = true;
+        email.style.border = `none`;
+        email.style.borderRadius = `none`;
+  }
+  else{
+    email.style.border = '2px solid';
+    email.style.borderRadius = '5px'
+    email.style.borderColor = '#dc3545';
+    }
+
+}
+
+
+button.addEventListener('click', e => {
+  e.preventDefault();
+  passwordValidation();
+  emailValidation();
+
+
+
+});
+
+
+
